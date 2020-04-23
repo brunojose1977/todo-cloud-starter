@@ -22,7 +22,7 @@ services:
     build:
       context: ./todo-postgres
       dockerfile: Dockerfile.dev
-    image: todo-postgres:Development
+    image: todo-postgres:1.0
     ports:
       - 5432:5432
     volumes:
@@ -43,7 +43,7 @@ services:
     build:
       context: todo-cache-ingestion
       dockerfile: ../Dockerfile.nodejs.dev
-    image: todo-cache-ingestion:Development
+    image: todo-cache-ingestion:1.0
     command: sh /app/start.sh
     environment:
       - REDIS_HOST=${REDIS_HOST}
@@ -59,7 +59,7 @@ services:
     build:
       context: todo-cache-service
       dockerfile: ../Dockerfile.nodejs.dev
-    image: todo-cache-service:Development
+    image: todo-cache-service:1.0
     ports:
       - 3001:3000
     environment:
@@ -73,7 +73,7 @@ services:
     build:
       context: todo-search-ingestion
       dockerfile: ../Dockerfile.nodejs.dev
-    image: todo-search-ingestion:Development
+    image: todo-search-ingestion:1.0
     command: sh /app/start.sh
     environment:
       - ELASTICSEARCH_HOST=${ELASTICSEARCH_HOST}
@@ -88,7 +88,7 @@ services:
     build:
       context: todo-search-service
       dockerfile: ../Dockerfile.nodejs.dev
-    image: todo-search-service:Development
+    image: todo-search-service:1.0
     command: sh /app/start.sh
     ports:
       - 3002:3000
@@ -103,7 +103,7 @@ services:
     build:
       context: todo-storage-ingestion
       dockerfile: ../Dockerfile.nodejs.dev
-    image: todo-storage-ingestion:Development
+    image: todo-storage-ingestion:1.0
     command: sh /app/start.sh
     environment:
       - POSTGRES_HOST=${POSTGRES_HOST}
@@ -121,7 +121,7 @@ services:
     build:
       context: todo-storage-service
       dockerfile: ../Dockerfile.nodejs.dev
-    image: todo-storage-service:Development
+    image: todo-storage-service:1.0
     ports:
       - 3003:3000
     environment:
@@ -138,7 +138,7 @@ services:
     build:
       context: todo-api-gateway
       dockerfile: ../Dockerfile.nodejs.dev
-    image: todo-api-gateway:Development
+    image: todo-api-gateway:1.0
     command: sh /app/start.sh
     ports:
       - 3000:3000
@@ -161,7 +161,7 @@ services:
     build:
       context: ./todo-view
       dockerfile: Dockerfile.dev
-    image: todo-view:Development
+    image: todo-view:1.0
     ports:
       - 4200:4200
     volumes:
@@ -175,7 +175,7 @@ services:
     build:
       context: ./todo-proxy
       dockerfile: Dockerfile.dev
-    image: todo-proxy:Development
+    image: todo-proxy:1.0
     ports:
       - 8080:80
     depends_on:
