@@ -19,8 +19,7 @@ app.use(
 
 // Elasticsearch Client Setup //////////////////////////////////////////////////////////////////////////////////////////
 const elasticClient = new elasticsearch.Client({
-    // hosts: [ envProps.elasticHost + ':' + envProps.elasticPort]
-    hosts: [ envProps.elasticHost ]
+    hosts: [ envProps.elasticHost + ':' + envProps.elasticPort]
 });
 // Ping the client to be sure Elastic is up
 elasticClient.ping({
